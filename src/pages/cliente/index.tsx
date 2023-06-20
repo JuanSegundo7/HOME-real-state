@@ -374,7 +374,7 @@ const Cliente = () => {
             </select>
             <input
               placeholder="Precio"
-              className="focus:outline-none bg-slate-200 rounded-md py-2 px-4 my-2"
+              className="focus:outline-none bg-slate-200 rounded-md py-2 px-4 my-2 w-full max-w-[436px]"
               type="number"
               name="precio"
               value={formValues.precio}

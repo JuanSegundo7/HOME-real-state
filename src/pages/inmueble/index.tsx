@@ -172,7 +172,7 @@ const Inmueble = () => {
           </svg>
         </Link>
       </div>
-      <div className="bg-white text-black rounded-lg w-full max-w-[1200px] mt-2 mb-10">
+      <div className="bg-white text-black rounded-lg w-full max-w-[1000px] mt-2 mb-10">
         <form
           onSubmit={handleSubmit}
           className="flex flex-col text-black p-4 items-center w-full"
@@ -258,7 +258,7 @@ const Inmueble = () => {
               <select
                 placeholder="Barrio"
                 onChange={handleChange}
-                className={`focus:outline-none bg-slate-200 rounded-md py-2 px-4 my-2 flex-shrink w-full max-w-[580px] ${
+                className={`focus:outline-none bg-slate-200 rounded-md py-2 px-4 my-2 flex-shrink w-full sm:max-w-[49.5%] ${
                   formValues.poblacion !== "madrid"
                     ? "cursor-not-allowed"
                     : "cursor-auto"
@@ -586,7 +586,7 @@ const Inmueble = () => {
                   </select>
                 </fieldset>
                 <select
-                  className="focus:outline-none bg-slate-200 rounded-md py-2 px-4 my-2 flex-shrink w-full max-w-[580px]"
+                  className="focus:outline-none bg-slate-200 rounded-md py-2 px-4 my-2 flex-shrink w-full sm:max-w-[49.5%]"
                   name="agua_caliente"
                   defaultValue="agua_caliente"
                   onChange={handleChange}
@@ -613,7 +613,7 @@ const Inmueble = () => {
               <input
                 placeholder="Precio"
                 maxLength={10}
-                className="focus:outline-none bg-slate-200 rounded-md py-2 px-4 my-2 flex-shrink w-full max-w-full"
+                className="focus:outline-none bg-slate-200 rounded-md py-2 px-4 my-2 flex-shrink w-full max-w-[500px]"
                 type="number"
                 name="precio"
                 value={formValues.precio}
