@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
@@ -7,7 +8,7 @@ export default function Home() {
         <div className="absolute inset-0 w-full h-screen filter saturate bg-madrid bg-cover bg-no-repeat bg-center"></div>
         <div className="relative h-screen flex items-center justify-center">
           <div className="bg-white m-4 p-4 rounded-lg w-fit mt-10 flex items-center justify-center flex-col">
-            <h1 className="text-blue-600 text-3xl sm:text-5xl mt-8">Home</h1>
+            <Image src="/imgs/logo.png" alt="logo" width={250} height={200} />
             <h2 className="text-black teext-xl sm:text-3xl mt-2 mb-8 text-center">
               Juntos a tu nuevo hogar
             </h2>

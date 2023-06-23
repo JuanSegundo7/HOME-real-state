@@ -41,6 +41,7 @@ const Inmueble = () => {
     agua_caliente: string;
     lavadero: string;
     fianza: string;
+    imagenes: Array<string>;
   };
 
   const [formValues, setFormValues] = useState<FormValuesType>({
@@ -77,6 +78,7 @@ const Inmueble = () => {
     agua_caliente: "",
     lavadero: "",
     fianza: "",
+    imagenes: [],
   });
 
   const handleChange = (
@@ -146,6 +148,7 @@ const Inmueble = () => {
         agua_caliente: "",
         lavadero: "",
         fianza: "",
+        imagenes: [],
       });
 
       setTimeout(() => {
@@ -156,6 +159,44 @@ const Inmueble = () => {
     }
   };
 
+  const uploadImagesToCloudinary = async (files: FileList | null) => {
+    if (!files) {
+      return;
+    }
+
+    const uploadPreset = "vtf7gn2g";
+
+    const uploadPromises = Array.from(files).map((file) => {
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("upload_preset", uploadPreset);
+
+      return fetch("https://api.cloudinary.com/v1_1/dlfk9t7om/image/upload", {
+        method: "POST",
+        body: formData,
+      }).then((response) => response.json());
+    });
+
+    try {
+      const uploadResponses = await Promise.all(uploadPromises);
+
+      const finalImages = uploadResponses.map((res) => res.secure_url);
+
+      setFormValues({
+        ...formValues,
+        imagenes: finalImages,
+      });
+    } catch (error) {
+      console.error("Upload failed:", error);
+    }
+  };
+
+  const onChangeFiles = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    uploadImagesToCloudinary(files);
+  };
+
+  console.log(formValues);
   return (
     <section className="w-full h-full min-h-[100vh] flex flex-col items-center justify-start px-8 md:px-16">
       <div className="mt-8 w-full flex justify-start">
@@ -585,18 +626,26 @@ const Inmueble = () => {
                     <option value="no">No</option>
                   </select>
                 </fieldset>
-                <select
-                  className="focus:outline-none bg-slate-200 rounded-md py-2 px-4 my-2 flex-shrink w-full sm:max-w-[49.5%]"
-                  name="agua_caliente"
-                  defaultValue="agua_caliente"
-                  onChange={handleChange}
-                >
-                  <option disabled value="agua_caliente">
-                    Agua Caliente
-                  </option>
-                  <option value="individual">Individual</option>
-                  <option value="central">Central</option>
-                </select>
+                <fieldset className="flex gap-2 flex-col sm:flex-row">
+                  <select
+                    className="focus:outline-none bg-slate-200 rounded-md py-2 px-4 my-2 flex-shrink w-full sm:max-w-[49.5%]"
+                    name="agua_caliente"
+                    defaultValue="agua_caliente"
+                    onChange={handleChange}
+                  >
+                    <option disabled value="agua_caliente">
+                      Agua Caliente
+                    </option>
+                    <option value="individual">Individual</option>
+                    <option value="central">Central</option>
+                  </select>
+                  <input
+                    type="file"
+                    multiple
+                    onChange={onChangeFiles}
+                    className="focus:outline-none bg-slate-200 rounded-md py-2 px-2 my-2 flex-shrink w-full sm:max-w-[49%] border-none"
+                  />
+                </fieldset>
               </fieldset>
             </fieldset>
             {formValues.tipo_busqueda === "alquiler" ? (

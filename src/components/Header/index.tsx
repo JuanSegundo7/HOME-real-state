@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -6,7 +7,7 @@ function Header() {
     <header className="w-full h-14 flex items-center shadow-md">
       <nav className="px-8 md:px-16 w-full flex justify-between items-center">
         <Link href="/">
-          <p className="text-2xl font-bold text-blue-400">HOME</p>
+          <Image src="/imgs/home.png" alt="logo" width="130" height="90" />
         </Link>
         <div className="cursor-pointer px-2 border-slate-200 h-8 w-20 border rounded-md flex items-center justify-around">
           <svg
