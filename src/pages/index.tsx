@@ -8,7 +8,7 @@ export default function Home() {
         <div className="absolute inset-0 w-full h-screen filter saturate bg-madrid bg-cover bg-no-repeat bg-center"></div>
         <div className="relative h-screen flex items-center justify-center">
           <div className="bg-white m-4 p-4 rounded-lg w-fit mt-10 flex items-center justify-center flex-col">
-            <Image src="/imgs/logo.png" alt="logo" width={250} height={200} />
+            <Image src="/imgs/home.png" alt="logo" width={250} height={200} />
             <h2 className="text-black teext-xl sm:text-3xl mt-2 mb-8 text-center">
               Juntos a tu nuevo hogar
             </h2>
