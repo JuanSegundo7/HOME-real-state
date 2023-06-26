@@ -383,7 +383,7 @@ const Cliente = () => {
             />
           </fieldset>
           <button
-            className="my-2 bg-blue-400 text-white rounded-md w-full max-w-[200px]"
+            className="my-2 bg-home-dark-blue text-white rounded-md w-full max-w-[200px]"
             type="submit"
           >
             Enviar

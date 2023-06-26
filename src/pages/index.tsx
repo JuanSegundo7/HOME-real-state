@@ -8,20 +8,26 @@ export default function Home() {
         <div className="absolute inset-0 w-full h-screen filter saturate bg-madrid bg-cover bg-no-repeat bg-center"></div>
         <div className="relative h-screen flex items-center justify-center">
           <div className="bg-white m-4 p-4 rounded-lg w-fit mt-10 flex items-center justify-center flex-col">
-            <Image src="/imgs/home.png" alt="logo" width={250} height={200} />
+            <Image
+              src="/imgs/home.png"
+              alt="logo"
+              width={200}
+              height={200}
+              unoptimized
+            />
             <h2 className="text-black teext-xl sm:text-3xl mt-2 mb-8 text-center">
               Juntos a tu nuevo hogar
             </h2>
             <article className="flex flex-col sm:flex-row justify-center gap-2">
               <Link href="/inmueble">
-                <div className="bg-blue-400 p-2 rounded-lg cursor-pointer flex item">
+                <div className="bg-home-light-blue p-2 rounded-lg cursor-pointer hover:bg-home-dark-blue transition duration-300">
                   <p className="text-white text-center font-bold tracking-wider">
                     Registrar un inmueble
                   </p>
                 </div>
               </Link>
               <Link href="/cliente">
-                <div className="bg-blue-400 p-2 rounded-lg cursor-pointer">
+                <div className="bg-home-light-blue p-2 rounded-lg cursor-pointer hover:bg-home-dark-blue transition duration-300">
                   <p className="text-white text-center font-bold tracking-wider">
                     Registrar un cliente
                   </p>
