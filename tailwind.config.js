@@ -11,6 +11,7 @@ module.exports = {
         "home-light-blue": "#66D0A4",
         "home-dark-blue": "#087F8C",
         "home-black": "#353839",
+        "home-grey": "#686A79",
       },
       backgroundImage: {
         madrid:
